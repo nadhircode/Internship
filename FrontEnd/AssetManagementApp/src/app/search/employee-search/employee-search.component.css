@@ -1,0 +1,24 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .search-box {
+    margin-top: 20px;
+  }
+  
+  mat-form-field {
+    width: 300px;
+  }
+  
+  input {
+    color: #333;
+  }
+  
+  button {
+    color: #666;
+  }
+  
+  

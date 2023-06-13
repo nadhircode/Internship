@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Asset Management System</h1>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="navigateTo('registration')"
+    >
+      Register
+    </button>
+    <button mat-raised-button color="accent" (click)="navigateTo('search')">
+      Find
+    </button>
+    <button mat-button [matMenuTriggerFor]="viewMenu" color="warn">View</button>
+    <mat-menu #viewMenu="matMenu">
+      <button mat-menu-item (click)="navigateTo('view/assets')">
+        View Assets
+      </button>
+      <button mat-menu-item (click)="navigateTo('view/employees')">
+        View Employees
+      </button>
+    </mat-menu>
+  </div>
+  <router-outlet></router-outlet>
+</div>

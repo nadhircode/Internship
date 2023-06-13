@@ -1,0 +1,28 @@
+<div class="search-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Search Assets</mat-label>
+    <input matInput placeholder="Enter keywords" [(ngModel)]="searchKeyword" />
+    <button mat-icon-button matSuffix (click)="searchAssets()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div *ngIf="searchedAssets.length > 0">
+  <h3>Search Results:</h3>
+  <ul>
+    <li *ngFor="let asset of searchedAssets">
+      <p>Asset ID: {{ asset.assetId }}</p>
+      <p>Serial Number: {{ asset.serialNumber }}</p>
+      <p>Manufacturer: {{ asset.manufacturer }}</p>
+      <p>Model: {{ asset.model }}</p>
+      <p>Purchase Date: {{ asset.purchaseDate }}</p>
+      <p>Current Location: {{ asset.currentLocation }}</p>
+      <p>Status: {{ asset.status }}</p>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="searchedAssets.length === 0">
+  <p>No results found.</p>
+</div>

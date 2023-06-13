@@ -1,0 +1,19 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  mat-form-field {
+    width: 300px;
+  }
+  
+  input {
+    color: #333;
+  }
+  
+  button {
+    color: #666;
+  }
+  

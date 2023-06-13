@@ -1,0 +1,73 @@
+package com.bytes.finalAssesment.Controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bytes.finalAssesment.Services.AssetService;
+import com.bytes.finalAssesment.models.Asset;
+
+@RestController
+@RequestMapping("/assets")
+public class AssetController {
+
+    private final AssetService assetService;
+
+    public AssetController(AssetService assetService) {
+        this.assetService = assetService;
+    }
+    
+    @GetMapping
+    public List<Asset> getAllAssets() {
+        return assetService.getAllAssets();
+    }
+
+    @GetMapping("/{assetId}")
+    public ResponseEntity<Asset> getAssetById(@PathVariable Long assetId) {
+        Asset asset = assetService.getAssetById(assetId);
+        return ResponseEntity.ok(asset);
+    }
+    
+    @GetMapping
+    public ResponseEntity<String> get() {
+        return ResponseEntity.ok("hello");
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Asset> createAsset(@RequestBody Asset asset) {
+        Asset createdAsset = assetService.createAsset(asset);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdAsset);
+    }
+    
+    @GetMapping("/search")
+    public List<Asset> searchAssets(@RequestParam("search") String searchKeyword) {
+        return assetService.searchAssets(searchKeyword);
+    }
+
+    @PutMapping("/{assetId}/location")
+    public ResponseEntity<String> updateAssetLocation(
+            @PathVariable("assetId") Long assetId,
+            @RequestParam("location") String location) {
+        assetService.updateAssetLocation(assetId, location);
+        return ResponseEntity.ok("Asset location updated successfully");
+    }
+
+    @PutMapping("/{assetId}/status")
+    public ResponseEntity<String> updateAssetStatus(
+            @PathVariable("assetId") Long assetId,
+            @RequestParam("status") String status) {
+        assetService.updateAssetStatus(assetId, status);
+        return ResponseEntity.ok("Asset status updated successfully");
+    }
+
+    // Other endpoints and methods for updating, deleting, and searching assets
+}

@@ -1,0 +1,76 @@
+package com.bytes.finalAssesment.models;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "assignment")
+public class Assignment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "assignment_id")
+    private Long assignmentId;
+
+    @ManyToOne
+    @JoinColumn(name = "asset_id")
+    private Asset asset;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
+    @Column(name = "assignment_date")
+    private LocalDate assignmentDate;
+
+	public Assignment(Long assignmentId, Asset asset, Employee employee, LocalDate assignmentDate) {
+		super();
+		this.assignmentId = assignmentId;
+		this.asset = asset;
+		this.employee = employee;
+		this.assignmentDate = assignmentDate;
+	}
+
+	public Long getAssignmentId() {
+		return assignmentId;
+	}
+
+	public void setAssignmentId(Long assignmentId) {
+		this.assignmentId = assignmentId;
+	}
+
+	public Asset getAsset() {
+		return asset;
+	}
+
+	public void setAsset(Asset asset) {
+		this.asset = asset;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public LocalDate getAssignmentDate() {
+		return assignmentDate;
+	}
+
+	public void setAssignmentDate(LocalDate assignmentDate) {
+		this.assignmentDate = assignmentDate;
+	}
+
+    // Constructors, getters, setters
+}
+

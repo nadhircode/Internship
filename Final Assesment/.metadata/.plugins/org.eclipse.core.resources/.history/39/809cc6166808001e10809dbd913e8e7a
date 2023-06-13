@@ -1,0 +1,23 @@
+package com.bytes.finalAssesment.Repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.bytes.finalAssesment.models.Asset;
+
+public interface AssetRepository extends JpaRepository<Asset, Long> {
+    // Add custom query methods if needed
+	List<Asset> findByAssetIdOrSerialNumberOrManufacturerOrModel(Long assetId, String serialNumber, String manufacturer, String model);
+
+    @Modifying
+    @Query("UPDATE Asset a SET a.currentLocation = :location WHERE a.id = :assetId")
+    void updateAssetLocation(@Param("assetId") Long assetId, @Param("location") String location);
+
+    @Modifying
+    @Query("UPDATE Asset a SET a.status = :status WHERE a.id = :assetId")
+    void updateAssetStatus(@Param("assetId") Long assetId, @Param("status") String status);
+}

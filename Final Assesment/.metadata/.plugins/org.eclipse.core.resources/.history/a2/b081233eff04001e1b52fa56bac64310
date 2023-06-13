@@ -1,0 +1,5 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/asset_management
+spring.datasource.username=postgres
+spring.datasource.password=nadhir@bytes5039
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.show-sql=true

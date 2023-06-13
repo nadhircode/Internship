@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  h1 {
+    color: #3f51b5;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    margin: 0 10px;
+  }
+  
