@@ -9,8 +9,6 @@ import { EmployeeSearchComponent } from './search/employee-search/employee-searc
 import { AssignmentSearchComponent } from './search/assignment-search/assignment-search.component';
 import { AssignAssetComponent } from './assignment/assign-asset/assign-asset.component';
 import { UnassignAssetComponent } from './assignment/unassign-asset/unassign-asset.component';
-import { AllAssetsComponent } from './all-assets/all-assets.component';
-import { AllEmployeesComponent } from './all-employees/all-employees.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent, children: [
@@ -26,10 +24,7 @@ const routes: Routes = [
   },
   { path: 'assignment', component: AssignAssetComponent },
   { path: 'unassignment', component: UnassignAssetComponent },
-  { path: '', redirectTo: '/registration', pathMatch: 'full' },
-  { path: 'view', redirectTo: '/view/assets', pathMatch: 'full' },
-  { path: 'view/assets', component: AllAssetsComponent },
-  { path: 'view/employees', component: AllEmployeesComponent },
+  { path: '', redirectTo: '/registration', pathMatch: 'full' }
 ];
 
 @NgModule({

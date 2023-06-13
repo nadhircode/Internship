@@ -17,11 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { AllAssetsComponent } from './all-assets/all-assets.component';
-import { AllEmployeesComponent } from './all-employees/all-employees.component';
-import { MatMenuModule } from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -35,9 +31,7 @@ import { MatMenuModule } from '@angular/material/menu';
     EmployeeSearchComponent,
     AssignmentSearchComponent,
     AssignAssetComponent,
-    UnassignAssetComponent,
-    AllAssetsComponent,
-    AllEmployeesComponent
+    UnassignAssetComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +41,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule,
-    FormsModule,
-    HttpClientModule,
-    MatMenuModule
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
